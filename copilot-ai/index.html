@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Asystent AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dark desktop">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <i class="fa-solid fa-robot"></i>
+            <span>Asystent AI</span>
+        </div>
+
+        <button id="new-chat" class="sidebar-btn">
+            <i class="fa-solid fa-plus"></i> Nowy czat
+        </button>
+
+        <button id="theme-toggle" class="sidebar-btn">
+            <i class="fa-solid fa-circle-half-stroke"></i> Motyw (skrót)
+        </button>
+
+        <button id="settings-btn" class="sidebar-btn">
+            <i class="fa-solid fa-gear"></i> Ustawienia
+        </button>
+
+        <div class="dropdown">
+            <button class="dropdown-btn">
+                <i class="fa-solid fa-user-group"></i> Asystenci ▼
+            </button>
+            <div class="dropdown-content" id="assistant-list"></div>
+        </div>
+
+        <h3 class="sidebar-subtitle">
+            <i class="fa-solid fa-clock-rotate-left"></i> Historia czatów
+        </h3>
+        <div class="history-list" id="history-list">
+            <p class="history-empty">Brak historii…</p>
+        </div>
+    </aside>
+
+    <main class="chat-area">
+        <header>
+            <div class="tabs" id="tabs"></div>
+            <h1 id="chat-title">Nowy czat</h1>
+        </header>
+
+        <section class="assistant-window">
+            <div id="chat-window"></div>
+
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Napisz wiadomość..." autocomplete="off">
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </section>
+    </main>
+
+    <!-- MODAL USTAWIEŃ -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Ustawienia</h2>
+
+            <label>Twoje imię:</label>
+            <input type="text" id="user-name-input" placeholder="Wpisz imię">
+
+            <label>Zdjęcie profilowe (URL):</label>
+            <input type="text" id="user-avatar-input" placeholder="https://...">
+
+            <label>Motyw:</label>
+            <select id="theme-select">
+                <option value="dark">Ciemny</option>
+                <option value="light">Jasny</option>
+            </select>
+
+            <label>Tryb interfejsu:</label>
+            <select id="layout-select">
+                <option value="desktop">Komputerowy</option>
+                <option value="mobile">Mobilny</option>
+            </select>
+
+            <button id="save-settings" class="sidebar-btn">Zapisz</button>
+            <button id="close-settings" class="sidebar-btn danger">Zamknij</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

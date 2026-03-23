@@ -1,0 +1,363 @@
+/* MOTYWY */
+body.dark {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent: #3b82f6;
+    --border: #334155;
+}
+
+body.light {
+    --bg: #f1f5f9;
+    --panel: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --accent: #2563eb;
+    --border: #cbd5e1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    height: 100vh;
+    transition: 0.3s;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 260px;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.sidebar-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-btn.danger {
+    background: #dc2626;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.dropdown.open .dropdown-content {
+    display: flex;
+}
+
+.assistant-item {
+    padding: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.assistant-item.active {
+    border-color: var(--accent);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.history-list {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 120px;
+}
+
+.history-item {
+    padding: 8px;
+    background: var(--panel);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+}
+
+.history-item:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* CHAT AREA */
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#chat-title {
+    font-size: 1.1rem;
+}
+
+/* TABS */
+
+.tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.assistant-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-window {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* WIADOMOŚCI + AVATARY */
+
+.message {
+    max-width: 80%;
+    display: flex;
+    gap: 8px;
+}
+
+.message-inner {
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+.message.bot .message-inner {
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message.user .message-inner {
+    background: var(--accent);
+    color: white;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    background: var(--accent);
+    color: white;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Typing */
+
+.message.typing .message-inner {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* WIADOMOŚĆ Z OBRAZKIEM */
+
+.message.image .message-inner {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.message.image img {
+    width: 200px;
+    border-radius: 10px;
+    display: block;
+}
+
+/* FORMULARZ */
+
+#chat-form {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid var(--border);
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+}
+
+button[type="submit"] {
+    background: var(--accent);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    color: white;
+    cursor: pointer;
+}
+
+/* MODAL USTAWIEŃ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--panel);
+    padding: 20px;
+    border-radius: 12px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid var(--border);
+}
+
+.modal-content input,
+.modal-content select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* LAYOUT MOBILE */
+
+body.mobile .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+}
+
+body.mobile .chat-area {
+    height: calc(100vh - 200px);
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .chat-area {
+        height: calc(100vh - 200px);
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    #chat-window {
+        padding: 10px;
+    }
+}
